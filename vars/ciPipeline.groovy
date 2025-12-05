@@ -20,6 +20,12 @@ def call(Map config = [:]) {
                     sh "${config.testCmd ?: 'npm test'}"
                 }
             }
+
+            stage('Deploy') {
+                steps {
+                    echo "Deploying application... (from shared library)"
+                }
+            }
         }
 
         post {
